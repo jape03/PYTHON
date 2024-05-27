@@ -1,7 +1,11 @@
-numbers = input("Enter the number: ")
+number = int(input("Enter number: "))
 
-def each_digit(numbers):
-    for num in numbers:
-        print(num)
-        
-each_digit(numbers)
+def digital_root(n):
+    if n == 0:
+        return 0
+    else:
+        return 1 + (n - 1) % 9
+
+result = digital_root(number)
+
+print(f"The digital root of {number} is {result}")
