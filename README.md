@@ -1,3 +1,5 @@
 # PYTHON
 
-Python Projects
+Python Projects <br>
+-School <br>
+-Personal <br>
