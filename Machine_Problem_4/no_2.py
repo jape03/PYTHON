@@ -17,7 +17,7 @@ class Circle:
                 print(f"The Perimeter of the Circle is: {perimeter:.2f}")
         except ValueError:
             try:
-                float(radius)
+                float(self.radius)
                 print("The radius must be a whole number.")
             except ValueError:
                 print("The input must be a Positive number:")
