@@ -1,36 +1,35 @@
 class Converter:
-    guide = {
-        'I': 1, 'V': 5, 'X': 10, 'L': 50,
-        'C': 100, 'D': 500, 'M': 1000,
-        'IV': 4, 'IX': 9, 'XL': 40, 'XC': 90, 'CD': 400, 'CM': 900
-    }
-
-    @staticmethod
-    def int_to_roman(value):
-        if not 1 <= value <= 5000:
-            return "Max Value is 5000."
-        roman_guide = [
+    def __init__(self):
+        self.guide = {
+            'I': 1, 'V': 5, 'X': 10, 'L': 50,
+            'C': 100, 'D': 500, 'M': 1000,
+            'IV': 4, 'IX': 9, 'XL': 40, 'XC': 90, 'CD': 400, 'CM': 900
+        }
+        self.roman_guide = [
             (1000, "M"), (900, "CM"), (500, "D"), (400, "CD"),
             (100, "C"), (90, "XC"), (50, "L"), (40, "XL"),
             (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")
         ]
+
+    def int_to_roman(self, value):
+        if not 1 <= value <= 5000:
+            return "Max Value is 5000."
         roman = ""
-        for integer_value, roman_symbol in roman_guide:
+        for integer_value, roman_symbol in self.roman_guide:
             while value >= integer_value:
                 roman += roman_symbol
                 value -= integer_value
         return roman
 
-    @staticmethod
-    def roman_to_int(roman):
+    def roman_to_int(self, roman):
         roman = roman.upper()
         i, total = 0, 0
         while i < len(roman):
-            if i + 1 < len(roman) and roman[i:i+2] in Converter.guide:
-                total += Converter.guide[roman[i:i+2]]
+            if i + 1 < len(roman) and roman[i:i+2] in self.guide:
+                total += self.guide[roman[i:i+2]]
                 i += 2
-            elif roman[i] in Converter.guide:
-                total += Converter.guide[roman[i]]
+            elif roman[i] in self.guide:
+                total += self.guide[roman[i]]
                 i += 1
             else:
                 return "Invalid Roman Numeral."
