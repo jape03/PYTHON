@@ -35,6 +35,7 @@ class Converter:
                 return "Invalid Roman Numeral."
         return total
 
+converter = Converter()
 
 while True:
     print("1. Integer to a Roman Numeral\n2. Roman Numeral to Integer\n3. Exit")
@@ -42,13 +43,13 @@ while True:
     if choice == '1':
         try:
             number = int(input("Enter Integer: "))
-            result = Converter.int_to_roman(number)
+            result = converter.int_to_roman(number)
             print(f"Roman Numeral: {result}")
         except ValueError:
             print("Invalid integer.")
     elif choice == '2':
         roman = input("Enter Roman Numeral: ")
-        result = Converter.roman_to_int(roman)
+        result = converter.roman_to_int(roman)
         print(f"Integer: {result}")
     elif choice == '3':
         print("Bye")
