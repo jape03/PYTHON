@@ -6,8 +6,8 @@ numbers = [2, 5, 11, 2, 10, 1, 10, 4, 1, 8, 15, 13, 7, 5, 6, 5, 7, 6, 13, 12, 4,
 
 print(f"List: {numbers}")
 
-sorted_numbers = remove_and_sort(numbers)
-removed = len(numbers) - len(sorted_numbers)
+sorted_list = remove_and_sort(numbers)
+removed = len(numbers) - len(sorted_list)
 
-print(f"New List: {sorted_numbers}")
+print(f"New List: {sorted_list}")
 print(f"Number of elements removed: {removed}")
