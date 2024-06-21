@@ -13,10 +13,10 @@ def replace(numbers):
             not_replaced += 1
     return new_list, replaced, not_replaced
 
-print(f"Original list: {numbers}")
+print(f"List: {numbers} \n")
 
 new_list, replaced, not_replaced = replace(numbers)
 
-print(f"New list: {new_list}")
+print(f"New list: {new_list} \n")
 print(f"Number of entries replaced: {replaced}")
 print(f"Number of entries not replaced: {not_replaced}")

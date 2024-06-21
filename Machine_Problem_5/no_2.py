@@ -22,7 +22,7 @@ def insert(numbers):
     numbers[3] = 25
     return numbers
 
-print(f"Original list: {numbers}")
+print(f"List: {numbers}")
 
 a = set(numbers.copy())
 print(f"a : {a}")
