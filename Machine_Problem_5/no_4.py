@@ -8,4 +8,5 @@ def letters(input):
 input = "abcdefghijklmnopqrstuvwxyz"
 output = letters(input)
 
-print(output)
+print(f"The input is {input} \n")
+print(f"The output is {output}")
