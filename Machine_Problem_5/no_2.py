@@ -19,7 +19,7 @@ def double(numbers):
     return numbers * 2
 
 def insert(numbers):
-    numbers[3] = 25
+    numbers.insert(3, 25)
     return numbers
 
 print(f"Original list: {numbers}")
