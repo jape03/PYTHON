@@ -14,10 +14,18 @@ def print_second_largest_smallest(numbers):
     return sorted_numbers[-2], sorted_numbers[1]
 
 def print_even(numbers):
-    return sum(1 for num in numbers if num % 2 == 0)
+    count = 0
+    for num in numbers:
+        if num % 2 == 0:  
+            count += 1
+    return count
 
 def print_odd(numbers):
-    return sum(1 for num in numbers if num % 2 != 0)
+    count = 0
+    for num in numbers:
+        if num % 2 != 0:  
+            count += 1
+    return count
 
 list = print_list(numbers)
 print(f"List: {list}")
