@@ -12,7 +12,6 @@ def read_text_file(file_name):
         print(f"An unexpected error occurred: {e}")
 
 file_name = 'helloworld.txt'
-print("Reading the text file:")
 read_text_file(file_name)
 
 

@@ -10,7 +10,7 @@ def open_file(file_name):
         print(f"An unexpected error occurred: {e}")
 
 print("File Exists")
-open_file("exist.txt")
+open_file("helloworld.txt")
 
 print("\nFile Does Not Exist")
 open_file("notexist.txt")
