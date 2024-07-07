@@ -72,7 +72,7 @@ def main():
     target = input('Enter the target string: ').strip()
     cfg = CFG(non_terminals, terminals, productions, start_symbol)
     result = cfg.generate(target)
-    print(f'Can the CFG generate the string "{target}"? {result}')
+    print(f'Can the CFG generate the string "{target}"? \n{result}')
 
 if __name__ == '__main__':
     main()
