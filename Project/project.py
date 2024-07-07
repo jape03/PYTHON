@@ -30,7 +30,7 @@ class ContextFreeGrammar:
                     possible_productions = self.production_rules.get(current_symbol, [])
                     for production in possible_productions:
                         new_state = current_state[:]
-                        new_state[index:index+1] = list(production)
+                        new_state[index:index+1] = list(production.replace(" ", ""))
                         new_path = derivation_path + [''.join(new_state)]
                         search_queue.append((new_state, new_path))
 
@@ -46,7 +46,7 @@ def main():
     non_terminals = input('Enter non-terminals (comma separated): ').strip().split(',')
     terminals = input('Enter terminals (comma separated): ').strip().split(',')
     production_rules = {}
-    print('Enter production rules (format: A -> a|b|c...d, enter "end" to finish): ')
+    print('Enter production rules (format: A -> a|b|c...d, then press enter if done, type "end" to finish): ')
     while True:
         user_input = input().strip()
         if user_input.lower() == 'end':
@@ -69,7 +69,7 @@ def main():
         print(f"Error: The start symbol must be one of the non-terminals.")
         return
 
-    target_string = input('Enter the target string: ').strip()
+    target_string = input('Enter the target string: ').strip().replace(" ", "")
     cfg = ContextFreeGrammar(non_terminals, terminals, production_rules, start_symbol)
     result = cfg.generate_target(target_string)
     print(f'Can the CFG generate the string "{target_string}"? \n{result}')
