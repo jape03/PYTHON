@@ -8,7 +8,7 @@ class ContextFreeGrammar:
         self.start_symbol = start_symbol
 
     def generate_target(self, target_string):
-        search_queue = deque([(list(self.start_symbol), [self.start_symbol])])  
+        search_queue = deque([(tuple(self.start_symbol), [self.start_symbol])])
         seen_states = set()
 
         while search_queue:
@@ -29,17 +29,17 @@ class ContextFreeGrammar:
                 if current_symbol in self.non_terminals:
                     possible_productions = self.production_rules.get(current_symbol, [])
                     for production in possible_productions:
-                        new_state = current_state[:]
-                        new_state[index:index+1] = list(production.replace(" ", ""))
+                        new_state = list(current_state)
+                        new_state[index:index+1] = production.replace(" ", "")
                         new_path = derivation_path + [''.join(new_state)]
-                        search_queue.append((new_state, new_path))
+                        search_queue.append((tuple(new_state), new_path))
 
         print(f'Target string "{target_string}" cannot be generated.')
         return False
 
     def display_derivation_path(self, derivation_path):
-        print(derivation_path[0])  
-        for step in derivation_path[1:]:  
+        print(derivation_path[0])
+        for step in derivation_path[1:]:
             print(" -> " + step)
 
 def main():
@@ -72,7 +72,7 @@ def main():
     target_string = input('Enter the target string: ').strip().replace(" ", "")
     cfg = ContextFreeGrammar(non_terminals, terminals, production_rules, start_symbol)
     result = cfg.generate_target(target_string)
-    print(f'Can the CFG generate the string "{target_string}"? \n{result}')
+    print(f'Can the CFG generate the string "{target_string}"?\n{result}')
 
 if __name__ == '__main__':
     main()
